@@ -1,54 +1,51 @@
 <div align="center">
-  <img src="images/1.png" alt="Zenix Studio Preview" width="100%" style="border-radius:12px;margin-bottom:20px">
+  <img src="images/1.png" alt="Portfolio Preview" width="100%" style="border-radius:12px;margin-bottom:20px">
 
-  <h1 align="center">✦ ZENIX STUDIO ✦</h1>
+  <h1 align="center">Portfolio Website</h1>
   <p align="center">
-    <strong>Portfolio & Creative Design Agency Website</strong>
+    <strong>A modern, responsive portfolio with a blog, contact form, and SEO</strong>
+  </p>
+
+  <p align="center">
+    <a href="https://formulareddy.github.io/portfolio-website/">🚀 Live Demo</a>
+    ·
+    <a href="#features">Features</a>
+    ·
+    <a href="#tech-stack">Tech Stack</a>
+    ·
+    <a href="#getting-started">Getting Started</a>
+  </p>
+
+  <p align="center">
+    <img src="https://img.shields.io/github/stars/formulareddy/portfolio-website?style=social" alt="Stars">
+    <img src="https://img.shields.io/github/forks/formulareddy/portfolio-website?style=social" alt="Forks">
+    <img src="https://img.shields.io/github/issues/formulareddy/portfolio-website?style=social" alt="Issues">
     <br>
-    Bold · Functional · Unforgettable Digital Experiences
+    <img src="https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
+    <img src="https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
+    <img src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript">
+    <img src="https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node.js">
+    <img src="https://img.shields.io/badge/-Resend-000000?style=flat-square&logo=resend&logoColor=white" alt="Resend">
+    <img src="https://img.shields.io/badge/-GitHub%20Pages-222222?style=flat-square&logo=githubpages&logoColor=white" alt="GitHub Pages">
   </p>
-
-  <p align="center">
-    <a href="https://formulareddy.github.io/portfolio-website/">🌐 Live Demo</a>
-    ·
-    <a href="#-features">Features</a>
-    ·
-    <a href="#-tech-stack">Tech Stack</a>
-    ·
-    <a href="#-getting-started">Getting Started</a>
-    ·
-    <a href="#-seo--performance">SEO</a>
-  </p>
-
-  <br>
-
-  ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-  ![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-  ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-  ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
-  ![Resend](https://img.shields.io/badge/-Resend-000000?style=flat-square&logo=resend&logoColor=white)
-  ![GitHub Pages](https://img.shields.io/badge/-GitHub%20Pages-222222?style=flat-square&logo=githubpages&logoColor=white)
 </div>
 
 ---
 
-## ✦ Overview
-
-A premium, dark-themed portfolio website for a creative design studio. Features a responsive layout, smooth animations, interactive blog with category filtering, and a real-time contact form powered by the Resend API.
-
-## ✦ Features
+## Features
 
 | Feature | Description |
 |---------|-------------|
 | 🎨 **Dark UI** | Immersive dark theme with neon green accent |
-| 📱 **Responsive** | Mobile-first with collapsible hamburger nav |
-| ⚡ **Animations** | Scroll reveals, parallax, typing effect, counting stats |
-| 📰 **Blog** | Filterable cards with modal article reader |
+| 📱 **Responsive** | Mobile-first with collapsible hamburger navigation |
+| ⚡ **Animations** | Scroll reveals, parallax effects, typing effect, counting stats |
+| 📰 **Blog** | Category-filterable cards with modal article reader |
 | ✉️ **Contact Form** | Real-time email delivery via Resend API |
-| 🔍 **SEO Optimized** | Meta tags, Open Graph, JSON-LD, sitemap |
-| ♿ **Accessible** | Semantic HTML, aria labels, keyboard nav |
+| 🔍 **SEO Optimized** | Meta tags, Open Graph, Twitter Cards, JSON-LD, sitemap, robots.txt |
+| ♿ **Accessible** | Semantic HTML, aria labels, keyboard navigation |
+| ⚡ **Fast** | Optimized fonts, lazy-loaded images, preconnect hints |
 
-## ✦ Tech Stack
+## Tech Stack
 
 ```
 Frontend         →  HTML5 · CSS3 · Vanilla JavaScript
@@ -59,7 +56,17 @@ Fonts            →  Google Fonts (Space Grotesk, Inter)
 Icons            →  Font Awesome 6
 ```
 
-## ✦ Getting Started
+## Screenshots
+
+<div align="center">
+  <img src="images/1.png" alt="Hero Section" width="80%" style="border-radius:8px;margin:5px">
+  <img src="images/2.png" alt="About Section" width="80%" style="border-radius:8px;margin:5px">
+  <img src="images/3.png" alt="Work Section" width="80%" style="border-radius:8px;margin:5px">
+  <img src="images/4.png" alt="Services Section" width="80%" style="border-radius:8px;margin:5px">
+  <img src="images/55.png" alt="Blog Section" width="80%" style="border-radius:8px;margin:5px">
+</div>
+
+## Getting Started
 
 ### Prerequisites
 - Node.js 18+
@@ -89,7 +96,7 @@ npm start          # starts backend on :3001
 npm run dev        # auto-restarts on file changes
 ```
 
-## ✦ SEO & Performance
+## SEO & Performance
 
 - ✅ Semantic HTML5 structure
 - ✅ Open Graph / Twitter Card meta tags
@@ -100,7 +107,7 @@ npm run dev        # auto-restarts on file changes
 - ✅ Lazy-loaded images
 - ✅ Optimized Google Fonts loading
 
-## ✦ Project Structure
+## Project Structure
 
 ```
 portfolio-website/
@@ -117,7 +124,7 @@ portfolio-website/
 └── README.md
 ```
 
-## ✦ Deployment
+## Deployment
 
 **Frontend** is deployed on **GitHub Pages**:
 ```bash
@@ -127,7 +134,11 @@ git push origin main
 
 **Backend** can be deployed to Render, Railway, or Fly.io (free tiers available).
 
-## ✦ License
+## Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request.
+
+## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
@@ -136,5 +147,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <div align="center">
   <sub>Built with passion by <a href="https://github.com/formulareddy">formulareddy</a></sub>
   <br>
-  <sub>© 2026 Zenix Studio. All rights reserved.</sub>
+  <sub>⭐ Star this repo if you find it useful!</sub>
 </div>
