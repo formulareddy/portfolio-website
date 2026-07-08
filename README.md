@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="images/1.png" alt="Portfolio Preview" width="100%" style="border-radius:12px;margin-bottom:20px">
+  <img src="images/123.png" alt="Portfolio Preview" width="100%" style="border-radius:12px;margin-bottom:20px">
 
   <h1 align="center">Portfolio Website</h1>
   <p align="center">
@@ -59,11 +59,11 @@ Icons            →  Font Awesome 6
 ## Screenshots
 
 <div align="center">
-  <img src="images/1.png" alt="Hero Section" width="80%" style="border-radius:8px;margin:5px">
-  <img src="images/2.png" alt="About Section" width="80%" style="border-radius:8px;margin:5px">
-  <img src="images/3.png" alt="Work Section" width="80%" style="border-radius:8px;margin:5px">
-  <img src="images/4.png" alt="Services Section" width="80%" style="border-radius:8px;margin:5px">
-  <img src="images/55.png" alt="Blog Section" width="80%" style="border-radius:8px;margin:5px">
+  <img src="images/123.png" alt="Screenshot 1" width="80%" style="border-radius:8px;margin:5px">
+  <img src="images/1234.png" alt="Screenshot 2" width="80%" style="border-radius:8px;margin:5px">
+  <img src="images/12345.png" alt="Screenshot 3" width="80%" style="border-radius:8px;margin:5px">
+  <img src="images/123456.png" alt="Screenshot 4" width="80%" style="border-radius:8px;margin:5px">
+  <img src="images/12345678.png" alt="Screenshot 5" width="80%" style="border-radius:8px;margin:5px">
 </div>
 
 ## Getting Started
