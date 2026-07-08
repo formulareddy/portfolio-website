@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Zenix Studio | Design, Dev & Branding Insights</title>
+    <meta name="description" content="Stories and insights from Zenix Studio on design, development, branding, and the creative process behind building digital experiences that matter.">
+    <meta name="keywords" content="design blog, UI UX articles, web development, branding tips, creative insights">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Zenix Studio">
+    <link rel="canonical" href="https://formulareddy.github.io/portfolio-website/blog.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog — Zenix Studio | Design, Dev & Branding Insights">
+    <meta property="og:description" content="Stories and insights from Zenix Studio on design, development, branding, and the creative process.">
+    <meta property="og:url" content="https://formulareddy.github.io/portfolio-website/blog.html">
+    <meta property="og:image" content="https://formulareddy.github.io/portfolio-website/images/1.png">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog — Zenix Studio | Design, Dev & Branding Insights">
+    <meta name="twitter:description" content="Stories and insights on design, development, branding, and the creative process.">
+    <meta name="twitter:image" content="https://formulareddy.github.io/portfolio-website/images/1.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Caveat+Brush&family=Permanent+Marker&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .blog-page {
+            padding-top: 100px;
+        }
+        .blog-header {
+            padding: 120px 5% 60px;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 30%, rgba(204, 255, 0, 0.04) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(179, 0, 255, 0.04) 0%, transparent 40%);
+        }
+        .blog-header .slash {
+            margin-bottom: 20px;
+        }
+        .blog-header h1 {
+            font-family: var(--font-heading);
+            font-size: 5rem;
+            line-height: 1.1;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+        .blog-header h1 span {
+            font-family: var(--font-marker);
+            color: var(--accent-green);
+            display: inline-block;
+            transform: rotate(-3deg);
+        }
+        .blog-header p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 550px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+        .blog-categories {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .blog-categories a {
+            padding: 10px 24px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .blog-categories a:hover,
+        .blog-categories a.active {
+            background: var(--accent-green);
+            color: #000;
+            border-color: var(--accent-green);
+        }
+        .blog-grid-section {
+            padding: 80px 5% 120px;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .blog-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(204, 255, 0, 0.2);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.4), 0 0 40px rgba(204, 255, 0, 0.03);
+        }
+        .blog-card.hidden {
+            display: none;
+        }
+        .blog-card-image {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .blog-card:hover .blog-card-image {
+            transform: scale(1.08);
+        }
+        .blog-card-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            background: #111118;
+        }
+        .blog-card-image-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(10,10,15,0.85) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .blog-card-body {
+            padding: 30px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.01) 0%, rgba(255,255,255,0.03) 100%);
+        }
+        .blog-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 16px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .blog-card-tag {
+            background: rgba(204, 255, 0, 0.12);
+            color: var(--accent-green);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+        .blog-card h3 {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            line-height: 1.35;
+            margin-bottom: 14px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        .blog-card h3 a {
+            color: #ffffff;
+            transition: color 0.3s;
+        }
+        .blog-card h3 a:hover {
+            color: var(--accent-green);
+        }
+        .blog-card p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 22px;
+        }
+        .blog-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .blog-card-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .blog-card-author img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(204, 255, 0, 0.25);
+        }
+        .blog-card-author span {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .blog-card-link {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 30px;
+        }
+        .blog-card-link:hover {
+            color: #000;
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+        }
+        .blog-card-link i {
+            font-size: 11px;
+            transition: transform 0.3s;
+        }
+        .blog-card-link:hover i {
+            transform: translateX(5px);
+        }
+        .blog-cta {
+            padding: 100px 5%;
+            text-align: center;
+            background: radial-gradient(circle at 50% 50%, rgba(204, 255, 0, 0.04) 0%, transparent 50%);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .blog-cta h2 {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            line-height: 1.2;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .blog-cta h2 span {
+            font-family: var(--font-marker);
+            color: var(--accent-green);
+        }
+        .blog-cta p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin-bottom: 35px;
+        }
+        .blog-cta-form {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .blog-cta-form input {
+            flex: 1;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 16px 20px;
+            font-family: var(--font-body);
+            font-size: 15px;
+            color: var(--text-primary);
+            outline: none;
+            transition: all 0.3s;
+        }
+        .blog-cta-form input:focus {
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 3px rgba(204, 255, 0, 0.05);
+        }
+        .blog-cta-form input::placeholder {
+            color: rgba(255,255,255,0.2);
+        }
+        .blog-cta-form .btn-solid {
+            border: none;
+            cursor: pointer;
+            margin-top: 0;
+            flex-shrink: 0;
+        }
+        @media (max-width: 992px) {
+            .blog-header h1 {
+                font-size: 3.5rem;
+            }
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .blog-cta h2 {
+                font-size: 2.5rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .blog-header {
+                padding: 100px 5% 40px;
+            }
+            .blog-header h1 {
+                font-size: 2.5rem;
+            }
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .blog-grid-section {
+                padding: 60px 5% 80px;
+            }
+            .blog-card-body {
+                padding: 25px;
+            }
+            .blog-cta {
+                padding: 70px 5%;
+            }
+            .blog-cta h2 {
+                font-size: 2rem;
+            }
+            .blog-cta-form {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+        @media (max-width: 576px) {
+            .blog-header h1 {
+                font-size: 2rem;
+            }
+            .blog-cta h2 {
+                font-size: 1.6rem;
+            }
+            .blog-categories a {
+                font-size: 11px;
+                padding: 8px 16px;
+            }
+        }
+
+        .blog-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(5,5,10,0.92);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeIn 0.25s ease;
+        }
+        .blog-modal.open {
+            display: flex;
+        }
+        .blog-modal-inner {
+            background: #111118;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.35s ease;
+        }
+        .blog-modal-close {
+            position: sticky;
+            top: 0;
+            float: right;
+            margin: 20px;
+            background: rgba(255,255,255,0.06);
+            border: none;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+        .blog-modal-close:hover {
+            background: var(--accent-green);
+            color: #000;
+        }
+        .blog-modal-image {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            display: block;
+            border-radius: 20px 20px 0 0;
+        }
+        .blog-modal-body {
+            padding: 40px;
+        }
+        .blog-modal-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .blog-modal-tag {
+            background: rgba(204, 255, 0, 0.12);
+            color: var(--accent-green);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 11px;
+        }
+        .blog-modal-body h2 {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .blog-modal-body p {
+            font-size: 15px;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        .blog-modal-body h3 {
+            font-size: 20px;
+            color: #fff;
+            margin: 30px 0 15px;
+            font-family: var(--font-heading);
+        }
+        .blog-modal-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .blog-modal-author img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(204, 255, 0, 0.25);
+        }
+        .blog-modal-author div {
+            display: flex;
+            flex-direction: column;
+        }
+        .blog-modal-author strong {
+            color: #fff;
+            font-size: 14px;
+        }
+        .blog-modal-author span {
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+        .blog-modal-inner::-webkit-scrollbar {
+            width: 6px;
+        }
+        .blog-modal-inner::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .blog-modal-inner::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px) scale(0.97); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @media (max-width: 768px) {
+            .blog-modal-body { padding: 25px; }
+            .blog-modal-body h2 { font-size: 22px; }
+            .blog-modal-inner { max-height: 90vh; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html#home" class="logo">ZENIX<span class="x">X</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html#home">HOME</a></li>
+            <li><a href="index.html#about">ABOUT</a></li>
+            <li><a href="index.html#work">WORK</a></li>
+            <li><a href="index.html#services">SERVICES</a></li>
+            <li><a href="blog.html" class="active">BLOG <span class="dot"></span></a></li>
+            <li><a href="index.html#contact">CONTACT</a></li>
+        </ul>
+        <a href="index.html#contact" class="btn-talk">LET'S TALK &rarr;</a>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    <div class="nav-overlay"></div>
+
+    <section class="blog-page">
+        <div class="blog-header">
+            <span class="slash">// LATEST INSIGHTS</span>
+            <h1>STORIES & <span>Insights</span><br>FROM THE STUDIO</h1>
+            <p>Thoughts on design, development, branding, and the creative process behind building digital experiences that matter.</p>
+            <div class="blog-categories">
+                <a href="#" data-filter="all" class="active">All</a>
+                <a href="#" data-filter="Design">Design</a>
+                <a href="#" data-filter="Development">Development</a>
+                <a href="#" data-filter="Branding">Branding</a>
+                <a href="#" data-filter="UX Research">UX Research</a>
+            </div>
+        </div>
+
+        <div class="blog-grid-section">
+            <div class="blog-grid">
+                <article class="blog-card" data-category="Design">
+                    <div class="blog-card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=600&h=375&fit=crop&q=80" alt="Abstract digital art with neon green glow" class="blog-card-image" loading="lazy">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span class="blog-card-tag">Design</span>
+                            <span>Jun 28, 2026</span>
+                            <span>· 5 min read</span>
+                        </div>
+                        <h3>The Art of Digital Design: Crafting Experiences That Matter</h3>
+                        <p>Exploring how thoughtful design decisions shape user behavior and create lasting emotional connections with brands.</p>
+                        <div class="blog-card-footer">
+                            <div class="blog-card-author">
+                                <img src="https://i.pravatar.cc/72?img=68" alt="Author" loading="lazy">
+                                <span>Zenix</span>
+                            </div>
+                            <a href="#" class="blog-card-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog-full-content" hidden>
+                        <h2>The Art of Digital Design: Crafting Experiences That Matter</h2>
+                        <p>In an era where digital touchpoints define brand perception, the line between functional design and meaningful experience has never been more critical. Great design isn't just about aesthetics — it's about creating moments that resonate, guide, and inspire.</p>
+                        <p>Every pixel, every micro-interaction, every typographic choice contributes to a narrative that users subconsciously absorb. When design aligns with human psychology, it transcends usability and becomes memorable.</p>
+                        <h3>The Psychology Behind Great Design</h3>
+                        <p>Cognitive fluency plays a pivotal role in how users perceive interfaces. When information is structured intuitively, the brain processes it with less effort, leading to higher satisfaction and trust. This is why whitespace isn't wasted space — it's cognitive breathing room.</p>
+                        <p>Color psychology, gestalt principles, and visual hierarchy aren't just academic concepts. They're the tools that transform a generic layout into a guided journey. A well-placed accent color can increase conversion by drawing attention to key actions, while consistent spacing builds subconscious familiarity.</p>
+                        <h3>Emotional Design in Practice</h3>
+                        <p>Don Norman's three levels of design — visceral, behavioral, and reflective — remain as relevant today as when first introduced. The visceral level captures attention through visual appeal. The behavioral level delivers a seamless, frustration-free experience. The reflective level creates lasting meaning and brand loyalty.</p>
+                        <p>The most successful digital products operate on all three levels simultaneously. They look good, work flawlessly, and leave users feeling smarter or more capable after each interaction.</p>
+                        <h3>Designing for Connection</h3>
+                        <p>In a crowded digital landscape, brands that prioritize emotional connection over feature count win long-term loyalty. This means designing with empathy — understanding user pain points, celebrating micro-moments of delight, and communicating brand values through every interaction.</p>
+                        <p>Whether it's a playful 404 page, a thoughtful onboarding sequence, or a carefully crafted error message, these moments define the user's overall perception of your brand.</p>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="Branding">
+                    <div class="blog-card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=375&fit=crop&q=80" alt="Dark branding workspace with laptop" class="blog-card-image" loading="lazy">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span class="blog-card-tag">Branding</span>
+                            <span>Jun 22, 2026</span>
+                            <span>· 7 min read</span>
+                        </div>
+                        <h3>Why Brand Identity Is Your Most Valuable Asset</h3>
+                        <p>A strong brand identity goes beyond logos — it's the foundation of trust, recognition, and long-term business growth.</p>
+                        <div class="blog-card-footer">
+                            <div class="blog-card-author">
+                                <img src="https://i.pravatar.cc/72?img=47" alt="Author" loading="lazy">
+                                <span>Sarah Chen</span>
+                            </div>
+                            <a href="#" class="blog-card-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog-full-content" hidden>
+                        <h2>Why Brand Identity Is Your Most Valuable Asset</h2>
+                        <p>Your brand identity is far more than a logo, a color palette, or a set of fonts. It's the sum total of how your audience perceives, remembers, and advocates for your business. In an increasingly crowded marketplace, a strong brand identity is your most defensible competitive advantage.</p>
+                        <p>Brands that invest in cohesive, thoughtful identity systems consistently outperform competitors in customer acquisition, retention, and premium pricing.</p>
+                        <h3>Beyond the Logo</h3>
+                        <p>While a logo serves as the visual anchor of your brand, true brand identity encompasses every touchpoint: your website, social media presence, packaging, customer support tone, and even the way employees answer the phone. Consistency across these touchpoints builds trust and recognition.</p>
+                        <p>Consider how Apple, Nike, and Airbnb communicate their brand values without explicitly stating them. Their identity is embedded in every asset, every interaction, and every decision.</p>
+                        <h3>The Business Case for Brand</h3>
+                        <p>Strong brands command higher prices, enjoy greater customer loyalty, and attract better talent. When customers identify with your brand on a personal level, they become not just buyers but advocates. They defend you against competitors and amplify your message organically.</p>
+                        <p>In a metrics-obsessed world, brand equity might seem intangible. But the data is clear: companies with consistent branding experience 33% more revenue growth on average.</p>
+                        <h3>Building Your Identity System</h3>
+                        <p>Start with your core values and mission. Your visual identity should be a direct reflection of these principles. Choose colors that evoke the right emotions, typography that communicates your personality, and imagery that tells your story.</p>
+                        <p>Document everything in a brand guidelines document. This ensures consistency as your team grows and new partners come onboard.</p>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="Development">
+                    <div class="blog-card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=375&fit=crop&q=80" alt="Dark developer desk with code on screen" class="blog-card-image" loading="lazy">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span class="blog-card-tag">Development</span>
+                            <span>Jun 15, 2026</span>
+                            <span>· 10 min read</span>
+                        </div>
+                        <h3>Building for Performance: A Developer's Guide to Speed</h3>
+                        <p>Optimizing web performance from the ground up — core web vitals, lazy loading, and modern rendering strategies.</p>
+                        <div class="blog-card-footer">
+                            <div class="blog-card-author">
+                                <img src="https://i.pravatar.cc/72?img=12" alt="Author" loading="lazy">
+                                <span>Marcus Lee</span>
+                            </div>
+                            <a href="#" class="blog-card-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog-full-content" hidden>
+                        <h2>Building for Performance: A Developer's Guide to Speed</h2>
+                        <p>Web performance is no longer a nice-to-have — it's a fundamental requirement. Users expect pages to load in under two seconds, and search engines reward speed with better rankings. Every millisecond of delay translates directly into lost revenue and diminished user satisfaction.</p>
+                        <p>Performance optimization requires a holistic approach, touching every layer of the stack from server configuration to frontend rendering.</p>
+                        <h3>Core Web Vitals and Why They Matter</h3>
+                        <p>Google's Core Web Vitals — LCP (Largest Contentful Paint), FID (First Input Delay), and CLS (Cumulative Layout Shift) — have become the standard benchmark for user experience. LCP should be under 2.5 seconds, FID under 100ms, and CLS under 0.1. Meeting these thresholds isn't just good practice — it's essential for search visibility.</p>
+                        <p>Tools like Lighthouse and PageSpeed Insights provide actionable recommendations, but understanding the underlying causes is key to long-term optimization.</p>
+                        <h3>Lazy Loading and Asset Optimization</h3>
+                        <p>Not every resource needs to load immediately. Images below the fold, non-critical JavaScript, and secondary stylesheets can be deferred. Native lazy loading via the <code>loading="lazy"</code> attribute makes implementation straightforward. Combine this with responsive images using <code>srcset</code> to serve appropriately sized assets to each device.</p>
+                        <p>Modern image formats like WebP and AVIF offer superior compression without quality loss. Serving these with fallback support ensures broad compatibility.</p>
+                        <h3>Rendering Strategies</h3>
+                        <p>Server-Side Rendering (SSR), Static Site Generation (SSG), and Incremental Static Regeneration (ISR) each offer different performance characteristics. Choosing the right strategy depends on your content freshness requirements and traffic patterns. For most content-heavy sites, SSG with ISR provides the best balance of performance and flexibility.</p>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="UX Research">
+                    <div class="blog-card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=600&h=375&fit=crop&q=80" alt="Dark UI design mockup on screen" class="blog-card-image" loading="lazy">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span class="blog-card-tag">UX Research</span>
+                            <span>Jun 8, 2026</span>
+                            <span>· 6 min read</span>
+                        </div>
+                        <h3>UI/UX Trends Shaping 2026: What's Next in Digital</h3>
+                        <p>From AI-driven interfaces to hyper-personalization — the trends redefining how users interact with digital products.</p>
+                        <div class="blog-card-footer">
+                            <div class="blog-card-author">
+                                <img src="https://i.pravatar.cc/72?img=45" alt="Author" loading="lazy">
+                                <span>Emily Carter</span>
+                            </div>
+                            <a href="#" class="blog-card-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog-full-content" hidden>
+                        <h2>UI/UX Trends Shaping 2026: What's Next in Digital</h2>
+                        <p>The pace of innovation in user experience design continues to accelerate. As we move through 2026, several key trends are reshaping how designers approach digital product creation. From AI-powered personalization to immersive spatial interfaces, the boundaries of what's possible are expanding rapidly.</p>
+                        <p>Staying ahead of these trends isn't about chasing novelty — it's about understanding which shifts genuinely improve the user experience.</p>
+                        <h3>AI-Driven Interfaces</h3>
+                        <p>Artificial intelligence is moving from behind-the-scenes logic to front-and-center interface design. Adaptive UI that reconfigures itself based on user behavior patterns, predictive search that anticipates intent, and dynamic content that personalizes in real-time are becoming standard expectations.</p>
+                        <p>The key challenge is maintaining user control and transparency. Users should always understand why an interface behaves the way it does and have the ability to override AI-driven decisions.</p>
+                        <h3>Hyper-Personalization</h3>
+                        <p>Users increasingly expect experiences tailored specifically to their needs, preferences, and context. This goes beyond simple "Welcome back, [Name]" messages. True hyper-personalization means adjusting content priority, visual density, navigation structure, and even tone of voice based on individual user profiles.</p>
+                        <p>When implemented thoughtfully, personalization increases engagement rates by 40-60% and significantly reduces bounce rates.</p>
+                        <h3>Inclusive and Accessible Design</h3>
+                        <p>Accessibility is no longer an afterthought or compliance checkbox. Designing for diverse abilities leads to better products for everyone. Features like reduced motion preferences, high-contrast modes, screen reader optimization, and keyboard-first navigation benefit the full spectrum of users.</p>
+                        <p>The most innovative interfaces of 2026 are those that adapt to user needs rather than forcing users to adapt to them.</p>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="Design">
+                    <div class="blog-card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=600&h=375&fit=crop&q=80" alt="Abstract dark gradient mesh art" class="blog-card-image" loading="lazy">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span class="blog-card-tag">Design</span>
+                            <span>May 30, 2026</span>
+                            <span>· 8 min read</span>
+                        </div>
+                        <h3>The Future of Web Design: AI & Human Creativity</h3>
+                        <p>How artificial intelligence is transforming the creative workflow and why human intuition remains irreplaceable.</p>
+                        <div class="blog-card-footer">
+                            <div class="blog-card-author">
+                                <img src="https://i.pravatar.cc/72?img=11" alt="Author" loading="lazy">
+                                <span>Alex Rivera</span>
+                            </div>
+                            <a href="#" class="blog-card-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog-full-content" hidden>
+                        <h2>The Future of Web Design: AI & Human Creativity</h2>
+                        <p>The relationship between artificial intelligence and creative design is often framed as a competition. In reality, the most exciting developments are emerging from collaboration — AI handling repetitive, data-intensive tasks while human designers focus on strategy, emotion, and creative direction.</p>
+                        <p>Understanding this partnership is essential for any designer looking to thrive in an AI-augmented future.</p>
+                        <h3>What AI Does Best</h3>
+                        <p>AI excels at pattern recognition, data processing, and generating variations at scale. Tools like Midjourney, DALL-E, and custom ML models can produce hundreds of design explorations in minutes, handling color palette generation, layout alternatives, and even copywriting suggestions.</p>
+                        <p>This dramatically accelerates the exploration phase, allowing designers to iterate faster and arrive at stronger solutions. AI can also analyze user behavior data to suggest layout changes that improve conversion rates.</p>
+                        <h3>What Humans Do Best</h3>
+                        <p>Creativity, empathy, strategic thinking, and cultural awareness remain uniquely human strengths. AI doesn't understand context, irony, or emotional nuance. It can't build a brand strategy or understand the subtle cultural implications of a design choice.</p>
+                        <p>The most valuable designers will be those who can direct AI tools effectively, applying human judgment to machine-generated options and weaving them into cohesive, meaningful experiences.</p>
+                        <h3>Practical Workflow Integration</h3>
+                        <p>Start by identifying repetitive tasks in your current workflow: resizing assets, generating color variations, creating mood boards. These are prime candidates for AI assistance. Use AI-generated output as a starting point, not a finished product.</p>
+                        <p>Document your prompts and results. Over time, you'll develop a library of effective AI collaborations that accelerate your work without compromising your creative vision.</p>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="Development">
+                    <div class="blog-card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=375&fit=crop&q=80" alt="Dark analytics dashboard on laptop" class="blog-card-image" loading="lazy">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span class="blog-card-tag">Development</span>
+                            <span>May 22, 2026</span>
+                            <span>· 5 min read</span>
+                        </div>
+                        <h3>Data-Driven Design: Measuring What Matters</h3>
+                        <p>Using analytics and user research to inform design decisions and create products that truly resonate with audiences.</p>
+                        <div class="blog-card-footer">
+                            <div class="blog-card-author">
+                                <img src="https://i.pravatar.cc/72?img=60" alt="Author" loading="lazy">
+                                <span>Jordan Park</span>
+                            </div>
+                            <a href="#" class="blog-card-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog-full-content" hidden>
+                        <h2>Data-Driven Design: Measuring What Matters</h2>
+                        <p>Design decisions backed by data consistently outperform those based on intuition alone. But the key phrase is "backed by" — data should inform, not replace, the designer's creative judgment. The most effective design processes combine quantitative insights with qualitative understanding.</p>
+                        <p>Understanding how to collect, interpret, and apply data is becoming an essential skill for modern designers.</p>
+                        <h3>Quantitative vs. Qualitative Data</h3>
+                        <p>Quantitative data (analytics, A/B test results, click-through rates) tells you what users are doing. Qualitative data (user interviews, session recordings, feedback surveys) tells you why. Both are essential, and neither alone provides a complete picture.</p>
+                        <p>Start with quantitative data to identify patterns and anomalies, then use qualitative research to understand the underlying causes. This combination leads to more targeted, effective design solutions.</p>
+                        <h3>Key Metrics for Design Impact</h3>
+                        <p>Task success rate, time on task, error rate, and satisfaction score (often measured via SUS or NPS) are the four cornerstone metrics for evaluating design effectiveness. These metrics provide a clear, comparable framework for measuring improvement over time.</p>
+                        <p>For content-heavy sites, engagement metrics like scroll depth, read time, and return visit rate offer insights into content resonance and information architecture effectiveness.</p>
+                        <h3>Building a Testing Culture</h3>
+                        <p>The most design-mature organizations test early and often. Integrating lightweight user testing into every sprint — rather than treating it as a separate phase — reduces risk and improves outcomes. Tools like UsabilityHub, Hotjar, and simple hallway testing provide quick, actionable feedback.</p>
+                        <p>Document your findings and share them broadly. A shared understanding of user behavior aligns the entire team around user-centered decision making.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <div class="blog-cta">
+            <h2>Stay in the <span>Loop</span></h2>
+            <p>Get the latest articles, resources, and insights delivered straight to your inbox.</p>
+            <form class="blog-cta-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn-solid">SUBSCRIBE</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html#home" class="footer-logo">ZENIX<span class="x">X</span></a>
+                <p class="footer-tagline">Crafting bold, functional & unforgettable digital experiences. Let's build something great together.</p>
+                <div class="footer-social">
+                    <a href="https://instagram.com" target="_blank" class="footer-social-link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://github.com" target="_blank" class="footer-social-link"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://youtube.com" target="_blank" class="footer-social-link"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://facebook.com" target="_blank" class="footer-social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>QUICK LINKS</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#work">Work</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>SERVICES</h4>
+                    <ul>
+                        <li><a href="index.html#services">UI/UX Design</a></li>
+                        <li><a href="index.html#services">Web Design</a></li>
+                        <li><a href="index.html#services">Branding</a></li>
+                        <li><a href="index.html#services">Development</a></li>
+                        <li><a href="index.html#services">Consulting</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-col-connect">
+                    <h4>CONNECT</h4>
+                    <ul>
+                        <li><a href="mailto:support.mylegacy@gmail.com">support.mylegacy@gmail.com</a></li>
+                        <li><a href="tel:+11234567890">+1 (123) 456-7890</a></li>
+                        <li><a href="#">India, AP</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Zenix Studio. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Sitemap</a>
+            </div>
+            <a href="#" class="scroll-top"><i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+    </footer>
+
+    <div class="blog-modal" id="blog-modal">
+        <div class="blog-modal-inner">
+            <button class="blog-modal-close" id="blog-modal-close">&times;</button>
+            <img class="blog-modal-image" id="blog-modal-image" src="" alt="">
+            <div class="blog-modal-body" id="blog-modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Nav Toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const btnTalk = document.querySelector('.btn-talk');
+            const navOverlay = document.querySelector('.nav-overlay');
+            function closeNav() {
+                if (!navToggle || !navLinks || !btnTalk || !navOverlay) return;
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('open');
+                btnTalk.classList.remove('open');
+                navOverlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+            function toggleNav() {
+                if (!navToggle || !navLinks || !btnTalk || !navOverlay) return;
+                navToggle.classList.toggle('active');
+                navLinks.classList.toggle('open');
+                btnTalk.classList.toggle('open');
+                navOverlay.classList.toggle('open');
+                document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+            }
+            if (navToggle) {
+                navToggle.addEventListener('click', toggleNav);
+                if (navOverlay) navOverlay.addEventListener('click', closeNav);
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', closeNav);
+                });
+            }
+
+            const cards = document.querySelectorAll('.blog-card');
+            const modal = document.getElementById('blog-modal');
+            const modalBody = document.getElementById('blog-modal-body');
+            const modalImage = document.getElementById('blog-modal-image');
+            const modalClose = document.getElementById('blog-modal-close');
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-active');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(el => {
+                el.classList.add('reveal-hidden');
+                observer.observe(el);
+            });
+
+            const filterBtns = document.querySelectorAll('.blog-categories a');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    const filter = this.dataset.filter;
+                    cards.forEach(card => {
+                        if (filter === 'all' || card.dataset.category === filter) {
+                            card.classList.remove('hidden');
+                            card.classList.add('reveal-hidden');
+                            setTimeout(() => card.classList.add('reveal-active'), 50);
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            document.querySelectorAll('.blog-card-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const card = this.closest('.blog-card');
+                    const img = card.querySelector('.blog-card-image');
+                    const content = card.querySelector('.blog-full-content');
+                    if (content) {
+                        modalImage.src = img.src;
+                        modalImage.alt = img.alt;
+                        modalBody.innerHTML = content.innerHTML;
+                        modal.classList.add('open');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+
+            function closeModal() {
+                modal.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            modalClose.addEventListener('click', closeModal);
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) closeModal();
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+            });
+
+            document.querySelectorAll('.scroll-top').forEach(el => {
+                el.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+
+            document.querySelectorAll('a[href^="index.html#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const hash = '#' + this.getAttribute('href').split('#')[1];
+                    if (hash === '#') return;
+                    const target = document.querySelector(hash);
+                    if (target) {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: target.getBoundingClientRect().top + window.pageYOffset - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
